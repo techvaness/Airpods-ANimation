@@ -1,0 +1,272 @@
+/* ------- Colors - Start ------- */
+/* ------- Colors - End ------- */
+/* ------- Global Styles - Start ------- */
+.ear-pod .bud, .ear-pod .line {
+  box-shadow: inset 5px 5px 5px 0px #111, inset -2px -2px 4px 0px rgba(167, 167, 167, 0.15);
+}
+
+.charger-text, .case-opening-front, .case {
+  box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.76), -2px -2px 10px 0px rgba(167, 167, 167, 0.15);
+}
+
+.ear-pod .bud.light-mode, .ear-pod .line.light-mode {
+  box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.1), inset -2px -2px 2px 0px rgba(255, 255, 255, 0.75);
+}
+
+.charger-text.light-mode, .case-opening-front.light-mode, .case.light-mode {
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.1), -5px -5px 5px 0px rgba(255, 255, 255, 0.75);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #111;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+body.light-mode {
+  background-color: #fff;
+}
+
+/* ------- Global Styles - End ------- */
+/* ------- Specific Styles - Start ------- */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.mode-switch {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  outline: none;
+}
+.mode-switch ion-icon {
+  font-size: 30px;
+  color: #808080;
+  animation: rotateSwitch 2s linear infinite;
+}
+.mode-switch #dark-mode-switch {
+  display: none;
+}
+
+.case-wrapper {
+  transform: perspective(1000px);
+  z-index: 3;
+}
+
+.case {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  height: 180px;
+  background-color: #171717;
+  border-top: transparent;
+  border-radius: 0 0 60px 60px;
+  z-index: 3;
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.5s;
+}
+.case.light-mode {
+  background-color: #ecf0f3;
+}
+
+.opening-grip-top {
+  width: 75px;
+  height: 25px;
+  margin-top: -12.5px;
+  border-radius: 20px;
+  background-color: rgba(167, 167, 167, 0.15);
+  clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0% 100%);
+}
+
+.opening-grip-bottom {
+  width: 75px;
+  height: 12.5px;
+  border-radius: 20px 20px 0 0;
+  background-color: rgba(167, 167, 167, 0.15);
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  margin-top: 20px;
+  border-radius: 50%;
+  background-color: lightgreen;
+}
+
+.case-opening-front {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  top: -50px;
+  width: 200px;
+  height: 50px;
+  background-color: #171717;
+  border-bottom: 2px solid #969292;
+  border-radius: 60px 60px 0 0;
+  transition: all 0.5s;
+}
+.case-opening-front.light-mode {
+  background-color: #ecf0f3;
+  border-bottom: 2px solid #fff;
+}
+
+.bud-holder {
+  width: 150px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgba(167, 167, 167, 0.15);
+}
+
+.ear-pod-wrapper {
+  position: absolute;
+  top: 50px;
+  left: 35px;
+  z-index: 2;
+}
+
+.ear-pod .line {
+  position: absolute;
+  top: 20px;
+  margin-top: -5px;
+  width: 20px;
+  height: 100px;
+  border-radius: 20px;
+  background-color: #171717;
+  clip-path: polygon(0 100%, 100% 100%, 235% 100%, 0 0);
+  border: 2px solid rgba(167, 167, 167, 0.3);
+  transition: all 0.5s;
+}
+.ear-pod .line.light-mode {
+  background-color: #ecf0f3;
+}
+.ear-pod .indicator {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 30px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: lightgreen;
+}
+.ear-pod .bud {
+  position: absolute;
+  top: 0px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #171717;
+  border: 2px solid rgba(167, 167, 167, 0.3);
+  transition: all 0.5s;
+}
+.ear-pod .bud.light-mode {
+  background-color: #ecf0f3;
+}
+
+.right-ear-pod {
+  margin-top: -25px;
+  margin-left: 125px;
+  transform-origin: left;
+  transform: rotateY(180deg);
+}
+
+.charger-wire {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: calc(-50vh - 200px);
+  width: 12px;
+  height: 200px;
+  margin-top: 70px;
+  border-radius: 10px;
+  background-color: #eb0029;
+  z-index: 1;
+}
+.charger-wire:before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 28px;
+  margin-top: -20px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: inset 2px 2px 8px 0px rgba(0, 0, 0, 0.1), inset -4px -4px 8px 0px rgba(167, 167, 167, 0.1);
+}
+.charger-wire:after {
+  content: "";
+  position: absolute;
+  width: 32px;
+  height: 58px;
+  margin-top: -70px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: inset 2px 2px 8px 0px rgba(0, 0, 0, 0.1), inset -4px -4px 8px 0px rgba(167, 167, 167, 0.1);
+  z-index: 1;
+}
+
+.charger-slot {
+  position: relative;
+  width: 50px;
+  height: 18px;
+  margin-top: -88px;
+  border-radius: 1px;
+  background-color: #fff;
+  box-shadow: inset 2px 0 px 0px rgba(167, 167, 167, 0.1), inset -2px 0 2px 0px rgba(167, 167, 167, 0.1);
+  z-index: 1;
+}
+
+.charger-text {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 20px;
+  background-color: #171717;
+  border: 0;
+  font-size: 12px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.5s;
+}
+.charger-text.light-mode {
+  color: #111;
+  background-color: #ecf0f3;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 70px;
+}
+
+/* ------- Specific Styles - End ------- */
+/* ------- KeyFrames - Start ------- */
+@keyframes rotateSwitch {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* ------- KeyFrames - End ------- */
